@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure--gg+d)g$50bvj$8q751ndoq*p)9t8m3f)#@@0l4vb!rk-!g^5e
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://taskorganize.up.railway.app']
 
 # Application definition
 
