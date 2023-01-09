@@ -30,8 +30,7 @@
             {% if tasks.complete %}
             <div class="task-title">
                 <div class="task-complete-icon"></div>
-                <i><s><a href="{% url 'tasks-update' tasks.id%}">{{ tasks }}</a> <p>created at : {{created}}</p></s></i>
-                <!-- <p class="task-title1">created at : {{created}}</p> -->
+                <i><s><a href="{% url 'tasks-update' tasks.id%}">{{ tasks }}</a> <p class="dateCreated">Date: {{tasks.created}}</p></s></i>
             </div>
             
             <a class="delete-link" href="{% url 'tasks-delete' tasks.id %}">&#215;</a>
@@ -39,7 +38,7 @@
             {% else %}
             <div class="task-title">
                 <div class="task-incomplete-icon"></div>
-                <div><a href="{% url 'tasks-update' tasks.id%}">{{ tasks }}</a> <p>created at : {{created}}</p></div>
+                <div><a href="{% url 'tasks-update' tasks.id%}">{{ tasks }}</a> <p class="dateCreated">Date: {{tasks.created}}</p></div>
             </div>
             <a class="delete-link" href="{% url 'tasks-delete' tasks.id %}">&#215;</a>
             {% endif %}
