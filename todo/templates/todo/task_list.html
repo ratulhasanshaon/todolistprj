@@ -24,35 +24,31 @@
 </div>
 
 <div class="card-bdy">
-    
-<div class="task-items-wrapper">
-    {% for tasks in task %}
-    <div class="task-wrapper">
-        {% if tasks.complete %}
-        <div class="task-title">
-            <div class="task-complete-icon"></div>
-            <i><s><a href="{% url 'tasks-update' tasks.id%}">{{ tasks }}</a></s></i>
-        </div>
-        <!-- <div class="task-title"><p>created at : {{created}}</p></div> -->
-        <a class="delete-link" href="{% url 'tasks-delete' tasks.id %}">&#215;</a>
+    <div class="task-items-wrapper">
+        {% for tasks in task %}
+        <div class="task-wrapper">
+            {% if tasks.complete %}
+            <div class="task-title">
+                <div class="task-complete-icon"></div>
+                <i><s><a href="{% url 'tasks-update' tasks.id%}">{{ tasks }}</a> <p>created at : {{created}}</p></s></i>
+                <!-- <p class="task-title1">created at : {{created}}</p> -->
+            </div>
+            
+            <a class="delete-link" href="{% url 'tasks-delete' tasks.id %}">&#215;</a>
 
-        {% else %}
-        <div class="task-title">
-            <div class="task-incomplete-icon"></div>
-            <a href="{% url 'tasks-update' tasks.id%}">{{ tasks }}</a>
+            {% else %}
+            <div class="task-title">
+                <div class="task-incomplete-icon"></div>
+                <div><a href="{% url 'tasks-update' tasks.id%}">{{ tasks }}</a> <p>created at : {{created}}</p></div>
+            </div>
+            <a class="delete-link" href="{% url 'tasks-delete' tasks.id %}">&#215;</a>
+            {% endif %}
         </div>
-        <!-- <div class="task-title"><p>created at : {{created}}</p></div> -->
-        <a class="delete-link" href="{% url 'tasks-delete' tasks.id %}">&#215;</a>
-        {% endif %}
-        
+        {% empty %}
+        <h3>No items in list</h3>
+        <a href="{% url 'task-create' %}">Add New Item</a>
+        {% endfor %}
     </div>
-    {% empty %}
-    <h3>No items in list</h3>
-    <a href="{% url 'task-create' %}">Add New Item</a>
-    {% endfor %}
-
-</div>
-
 </div>
 <!-- <table>
     <tr>
